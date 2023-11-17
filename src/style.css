@@ -94,3 +94,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.display {
+  width: 45vw;
+  height: 45vw;
+  border: black 1px solid;
+}
+
+.boundary {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bounded-entity {
+  position: absolute;
+}

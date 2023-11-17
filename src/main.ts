@@ -1,24 +1,17 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+import { initialiseTemplates, instantiateTemplate } from "./templates/manager";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const boundaries = document.getElementsByClassName("boundary");
+if (!boundaries.length) {
+  throw new Error(`<div class="boundary"> cannot be found`);
+}
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const boundaryElement = boundaries[0];
+
+try {
+  await initialiseTemplates();
+  const ballEntity = instantiateTemplate("BALL");
+  boundaryElement.appendChild(ballEntity.element);
+} catch (error) {
+  console.error(error);
+}
