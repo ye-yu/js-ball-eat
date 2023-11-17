@@ -96,9 +96,17 @@ button:focus-visible {
 }
 
 .display {
-  width: 45vw;
-  height: 45vw;
+  width: 75vh;
+  height: 75vh;
   border: black 1px solid;
+}
+
+@media (max-width: 500px) {
+  .display {
+    width: 75vw;
+    height: 75vw;
+    border: black 1px solid;
+  }
 }
 
 .boundary {
