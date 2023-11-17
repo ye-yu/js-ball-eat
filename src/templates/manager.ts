@@ -96,5 +96,5 @@ export function instantiateTemplate(name: keyof typeof templates) {
   const [firstElement] = getElementNodes(element);
   const entityId = crypto.randomUUID();
   firstElement.setAttribute("entity-id", entityId);
-  return { entityId, element };
+  return { entityId, element: firstElement };
 }
